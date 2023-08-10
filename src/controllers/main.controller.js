@@ -7,6 +7,13 @@ const getData = async () => {
   return rta;
 };
 
+const getUser = async (id) => {
+  const rta = await sequelize.query(`
+  SELECT * FROM first_table WHERE ID = '${id}'`);
+  return rta;
+};
+
 module.exports = {
   getData,
+  getUser
 };
