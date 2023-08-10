@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-</head>
-<body>
-    <input type="text">
-    <input type="text">
-</body>
+  </head>
+  <body>
+    <form action="/profile">
+      <label for="email">Email</label>
+      <input id="email" type="text" />
+      <label for="password">Password</label>
+      <input id="password" type="password" />
+      <button type="button" onclick="sendData()">Send</button>
+    </form>
+  </body>
+
+  <script>
+    var email = document.querySelector("#email");
+    var password = document.querySelector("#password");
+
+    function getForm() {
+      const formProfile = {};
+      formProfile.jEmail = email.value;
+      formProfile.jPassword = password.value;
+      return formProfile;
+    }
+
+    function sendData() {
+      const formProfile = getForm();
+      const url = "http://localhost:3000/profile";
+
+      const rtaPost = fetch(url, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formProfile),
+      });
+    }
+  </script>
 </html>

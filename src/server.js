@@ -11,6 +11,7 @@ app.use(passport.initialize());
 app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", engine);
 app.set("view engine", "ejs");
+app.use(express.json());
 
 // routes
 app.use(require("./routes/main.routes"));

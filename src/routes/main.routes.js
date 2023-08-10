@@ -7,12 +7,17 @@ router.get("/", async (req, res) => {
   res.render("Login");
 });
 
+router.get("/home", async (req, res) => {
+  res.render("Home");
+});
+
 // POST
 router.post(
   "/profile",
-  passport.authenticate("JwtStrategy", { session: false }),
+  // passport.authenticate("JwtStrategy", { session: false }),
   function (req, res) {
-    res.send(req.user.profile);
+    //console.log(req.body);
+    //res.redirect("/");
   }
 );
 module.exports = router;
