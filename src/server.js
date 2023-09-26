@@ -16,6 +16,9 @@ app.use(express.json());
 // routes
 app.use(require("./routes/main.routes"));
 
+// public route
+app.use(express.static(path.join(__dirname, "public")));
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
